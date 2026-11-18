@@ -1,11 +1,5 @@
 
 local ConfigManagerBehavior = {}
-local ConfigManagerMetatable = {}
-
-
-function ConfigManagerMetatable.__index(self, key)
-	return ConfigManagerBehavior[key]
-end
 
 
 function ConfigManagerBehavior.load(self)
@@ -13,6 +7,15 @@ function ConfigManagerBehavior.load(self)
 
     vim.opt.number = self.opt.number
     vim.opt.relativenumber = self.opt.relativenumber
+    vim.opt.completeopt = self.opt.completeopt
+end
+
+
+local ConfigManagerMetatable = {}
+
+
+function ConfigManagerMetatable.__index(self, key)
+	return ConfigManagerBehavior[key]
 end
 
 
@@ -29,6 +32,12 @@ local function create_with_default_config()
     local opt = {
         number = true,
         relativenumber = true,
+        completeopt = {
+          "menu",
+          "menuone",
+          "noinsert",
+          "noselect",
+        },
     }
 
     return create(opt)
