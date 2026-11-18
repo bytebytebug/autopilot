@@ -1,6 +1,6 @@
 
 vim.api.nvim_create_user_command("Autopilot", function()
-    print("Starting Autopilot.")
+    local autopilot = require("autopilot")
 
-    require("autopilot.config").load()
+    autopilot.initialize()
 end, {})
