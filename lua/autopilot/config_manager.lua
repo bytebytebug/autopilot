@@ -12,6 +12,10 @@ function ConfigManagerBehavior.load(self)
     vim.opt.listchars = self.opt.listchars
     vim.opt.breakindent = self.opt.breakindent
     vim.opt.showbreak = self.opt.showbreak
+    vim.opt.expandtab = self.opt.expandtab
+    vim.opt.tabstop = self.opt.tabstop
+    vim.opt.shiftwidth = self.opt.shiftwidth
+    vim.opt.softtabstop = self.opt.softtabstop
 end
 
 
@@ -48,6 +52,10 @@ local function create_with_default_config()
         },
         breakindent = true,
         showbreak = vim.fn.nr2char(0x21B3),
+        expandtab = false,
+        tabstop = 4,
+        shiftwidth = 4,
+        softtabstop = 0,
     }
 
     return create(opt)
