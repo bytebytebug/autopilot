@@ -8,6 +8,8 @@ function ConfigManagerBehavior.load(self)
     vim.opt.number = self.opt.number
     vim.opt.relativenumber = self.opt.relativenumber
     vim.opt.completeopt = self.opt.completeopt
+    vim.opt.list = self.opt.list
+    vim.opt.listchars = self.opt.listchars
 end
 
 
@@ -37,6 +39,10 @@ local function create_with_default_config()
           "menuone",
           "noinsert",
           "noselect",
+        },
+        list = true,
+        listchars = {
+            eol = vim.fn.nr2char(0x240D),
         },
     }
 
