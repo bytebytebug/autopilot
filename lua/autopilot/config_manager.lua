@@ -10,6 +10,8 @@ function ConfigManagerBehavior.load(self)
     vim.opt.completeopt = self.opt.completeopt
     vim.opt.list = self.opt.list
     vim.opt.listchars = self.opt.listchars
+    vim.opt.breakindent = self.opt.breakindent
+    vim.opt.showbreak = self.opt.showbreak
 end
 
 
@@ -44,6 +46,8 @@ local function create_with_default_config()
         listchars = {
             eol = vim.fn.nr2char(0x240D),
         },
+        breakindent = true,
+        showbreak = vim.fn.nr2char(0x21B3),
     }
 
     return create(opt)
